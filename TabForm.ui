@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TabForm</class>
+ <widget class="QWidget" name="TabForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>388</width>
+    <height>150</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QCheckBox" name="transmitteCheckBox">
+     <property name="minimumSize">
+      <size>
+       <width>76</width>
+       <height>19</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>76</width>
+       <height>19</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Transmitte</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QCheckBox" name="recieveCheckBox">
+     <property name="minimumSize">
+      <size>
+       <width>63</width>
+       <height>19</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>63</width>
+       <height>19</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Recieve</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>216</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="1" column="0" colspan="3">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="ComDataForm" name="transmitteWidget" native="true">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>1</horstretch>
+         <verstretch>1</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>181</width>
+         <height>101</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="ComDataForm" name="recieveWwidget" native="true">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>1</horstretch>
+         <verstretch>1</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>181</width>
+         <height>101</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ComDataForm</class>
+   <extends>QWidget</extends>
+   <header>ComDataForm.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
