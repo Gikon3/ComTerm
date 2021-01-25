@@ -13,79 +13,82 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <widget class="QCheckBox" name="rxCheckBox">
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <item>
+    <layout class="QFormLayout" name="formLayout_2">
+     <item row="0" column="0">
+      <widget class="QCheckBox" name="rxCheckBox">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>63</width>
+         <height>19</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>63</width>
+         <height>19</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Recieve</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QCheckBox" name="txCheckBox">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>76</width>
+         <height>19</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>76</width>
+         <height>19</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Transmitte</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QSplitter" name="splitter">
      <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
        <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
+       <verstretch>1</verstretch>
       </sizepolicy>
      </property>
-     <property name="minimumSize">
-      <size>
-       <width>63</width>
-       <height>19</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>63</width>
-       <height>19</height>
-      </size>
-     </property>
-     <property name="text">
-      <string>Recieve</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="1">
-    <widget class="QCheckBox" name="txCheckBox">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>76</width>
-       <height>19</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>76</width>
-       <height>19</height>
-      </size>
-     </property>
-     <property name="text">
-      <string>Transmitte</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="2">
-    <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>678</width>
-       <height>20</height>
-      </size>
+     <property name="handleWidth">
+      <number>6</number>
      </property>
-    </spacer>
-   </item>
-   <item row="1" column="0" colspan="3">
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <item>
+     <widget class="QWidget" name="">
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <layout class="QFormLayout" name="formLayout">
@@ -140,8 +143,8 @@
         </widget>
        </item>
       </layout>
-     </item>
-     <item>
+     </widget>
+     <widget class="QWidget" name="">
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QPushButton" name="txClearPushButton">
@@ -200,8 +203,8 @@
         </widget>
        </item>
       </layout>
-     </item>
-    </layout>
+     </widget>
+    </widget>
    </item>
   </layout>
  </widget>
