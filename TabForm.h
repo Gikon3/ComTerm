@@ -15,6 +15,12 @@ public:
     explicit TabForm(QWidget *parent = nullptr);
     ~TabForm();
 
+private slots:
+    void rxClearPushButtonClicked();
+    void txClearPushButtonClicked();
+    void rxCheckBoxClicked(bool check);
+    void txCheckBoxClicked(bool check);
+
 private:
     Ui::TabForm *ui;
 };
