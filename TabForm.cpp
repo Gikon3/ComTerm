@@ -22,31 +22,3 @@ void TabForm::txClearPushButtonClicked()
 {
     ui->txWidget->clear();
 }
-
-void TabForm::rxCheckBoxClicked(bool check)
-{
-    if(check) {
-        ui->rxWidget->show();
-        ui->rxClearPushButton->show();
-        ui->pausePushButton->show();
-        return;
-    }
-    ui->rxWidget->hide();
-    ui->rxClearPushButton->hide();
-    ui->pausePushButton->hide();
-}
-
-void TabForm::txCheckBoxClicked(bool check)
-{
-    if(check) {
-        ui->txWidget->show();
-        ui->txClearPushButton->show();
-        ui->txLline->show();
-        ui->sendPushButton->show();
-        return;
-    }
-    ui->txWidget->hide();
-    ui->txClearPushButton->hide();
-    ui->txLline->hide();
-    ui->sendPushButton->hide();
-}
