@@ -15,6 +15,10 @@ public:
     explicit ComDataForm(QWidget *parent = nullptr);
     ~ComDataForm();
 
+private slots:
+    void asciiComboBoxClicked(bool check);
+    void hexComboBoxClicked(bool check);
+
 private:
     Ui::ComDataForm *ui;
 };

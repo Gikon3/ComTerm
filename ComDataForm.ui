@@ -16,6 +16,12 @@
   <layout class="QGridLayout" name="gridLayout">
    <item row="2" column="5">
     <widget class="QPlainTextEdit" name="hexText">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="minimumSize">
       <size>
        <width>91</width>
@@ -54,6 +60,12 @@ EF</string>
    </item>
    <item row="0" column="1" colspan="2">
     <widget class="QCheckBox" name="hexCheckBox">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="text">
       <string>HEX</string>
      </property>
@@ -64,6 +76,12 @@ EF</string>
    </item>
    <item row="0" column="0">
     <widget class="QCheckBox" name="asciiCheckBox">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="text">
       <string>ASCII</string>
      </property>
@@ -88,5 +106,42 @@ EF</string>
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>asciiCheckBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>ComDataForm</receiver>
+   <slot>asciiComboBoxClicked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>40</x>
+     <y>16</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>131</x>
+     <y>4</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>hexCheckBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>ComDataForm</receiver>
+   <slot>hexComboBoxClicked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>94</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>167</x>
+     <y>22</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>asciiComboBoxClicked(bool)</slot>
+  <slot>hexComboBoxClicked(bool)</slot>
+ </slots>
 </ui>
