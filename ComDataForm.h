@@ -14,6 +14,7 @@ class ComDataForm : public QWidget
 public:
     explicit ComDataForm(QWidget *parent = nullptr);
     ~ComDataForm();
+    void clear();
 
 private slots:
     void asciiComboBoxClicked(bool check);

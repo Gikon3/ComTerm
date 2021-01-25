@@ -13,6 +13,7 @@ ComDataForm::~ComDataForm()
     delete ui;
 }
 
+// slots
 void ComDataForm::asciiComboBoxClicked(bool check)
 {
     if(check) {
@@ -29,4 +30,11 @@ void ComDataForm::hexComboBoxClicked(bool check)
         return;
     }
     ui->hexText->hide();
+}
+// -- slots
+
+void ComDataForm::clear()
+{
+    ui->asciiText->clear();
+    ui->hexText->clear();
 }
