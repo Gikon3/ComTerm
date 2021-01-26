@@ -49,6 +49,9 @@ void TabForm::handleReadyRead()
     if(!ui->pausePushButton->isChecked()) {
         ui->rxWidget->append(port->readAll());
     }
+    else {
+        port->readAll();
+    }
 }
 
 void TabForm::retranslate()
