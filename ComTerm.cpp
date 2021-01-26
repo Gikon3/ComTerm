@@ -42,6 +42,7 @@ void ComTerm::connectButtonClicked()
         QMessageBox::warning(this, "Warning", "Port " + info.portName() + " is open");
         delete tab;
     }
+    updateFreePortList();
 }
 
 void ComTerm::tabClose(int index)
