@@ -38,3 +38,9 @@ void ComDataForm::clear()
     ui->asciiText->clear();
     ui->hexText->clear();
 }
+
+void ComDataForm::append(const QByteArray& array)
+{
+    ui->asciiText->moveCursor(QTextCursor::End);
+    ui->asciiText->insertPlainText(array);
+}

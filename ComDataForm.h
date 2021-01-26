@@ -15,6 +15,7 @@ public:
     explicit ComDataForm(QWidget *parent = nullptr);
     ~ComDataForm();
     void clear();
+    void append(const QByteArray& array);
 
 private slots:
     void asciiComboBoxClicked(bool check);
