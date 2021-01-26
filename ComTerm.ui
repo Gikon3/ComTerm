@@ -521,7 +521,7 @@
   </action>
   <action name="actionAbout">
    <property name="text">
-    <string>About program</string>
+    <string>About</string>
    </property>
   </action>
  </widget>
