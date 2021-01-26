@@ -2,9 +2,9 @@
 #define COMTERM_H
 
 #include <QMainWindow>
-#include <QSet>
-#include <QSerialPort>
+#include <QList>
 #include "TabForm.h"
+#include <QRadioButton>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class ComTerm; }
@@ -25,9 +25,20 @@ private slots:
 
 private:
     void updateFreePortList();
+    QSerialPortInfo getPortParam();
 
 private:
     Ui::ComTerm *ui;
     const int heighTab = 160;
+    using BaudRatePair = QPair<QRadioButton*, QSerialPort::BaudRate>;
+    using DataBitsPair = QPair<QRadioButton*, QSerialPort::DataBits>;
+    using ParityPair = QPair<QRadioButton*, QSerialPort::Parity>;
+    using StopBitsPair = QPair<QRadioButton*, QSerialPort::StopBits>;
+    using FlowControlPair = QPair<QRadioButton*, QSerialPort::FlowControl>;
+    QList<BaudRatePair> baudRateList;
+    QList<DataBitsPair> dataBitsList;
+    QList<ParityPair> parityList;
+    QList<StopBitsPair> stopBitsList;
+    QList<FlowControlPair> flowControlList;
 };
 #endif // COMTERM_H
