@@ -83,6 +83,9 @@ void ComTerm::languageEnglishClicked()
     translator.load("");
     qApp->installTranslator(&translator);
     ui->retranslateUi(this);
+    for(int i = 0; i < ui->tabWidget->count(); ++i) {
+        dynamic_cast<TabForm*>(ui->tabWidget->widget(i))->retranslate();
+    }
 }
 
 void ComTerm::languageRussiaClicked()
@@ -92,6 +95,9 @@ void ComTerm::languageRussiaClicked()
     translator.load(":/translations/ComTerm_ru_RU");
     qApp->installTranslator(&translator);
     ui->retranslateUi(this);
+    for(int i = 0; i < ui->tabWidget->count(); ++i) {
+        dynamic_cast<TabForm*>(ui->tabWidget->widget(i))->retranslate();
+    }
 }
 // -- slots
 

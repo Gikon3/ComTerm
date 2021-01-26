@@ -50,3 +50,10 @@ void TabForm::handleReadyRead()
         ui->rxWidget->append(port->readAll());
     }
 }
+
+void TabForm::retranslate()
+{
+    ui->retranslateUi(this);
+    ui->rxWidget->retranslate();
+    ui->txWidget->retranslate();
+}

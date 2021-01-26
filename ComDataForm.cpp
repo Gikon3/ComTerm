@@ -52,3 +52,8 @@ void ComDataForm::append(const QByteArray& array)
     ui->hexText->moveCursor(QTextCursor::End);
     ui->hexText->insertPlainText(strHex);
 }
+
+void ComDataForm::retranslate()
+{
+    ui->retranslateUi(this);
+}

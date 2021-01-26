@@ -16,6 +16,7 @@ public:
     ~ComDataForm();
     void clear();
     void append(const QByteArray& array);
+    void retranslate();
 
 private slots:
     void asciiComboBoxClicked(bool check);

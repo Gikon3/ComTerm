@@ -16,6 +16,7 @@ class TabForm : public QWidget
 public:
     explicit TabForm(const QSerialPortInfo &info, bool *ok = nullptr, QWidget *parent = nullptr);
     ~TabForm();
+    void retranslate();
 
 private slots:
     void rxClearPushButtonClicked();
