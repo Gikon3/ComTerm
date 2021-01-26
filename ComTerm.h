@@ -22,6 +22,8 @@ private slots:
     void scanButtonClicked();
     void connectButtonClicked();
     void tabClose(int index);
+    void aboutWindowShow();
+    void aboutQtWindowShow();
 
 private:
     void updateFreePortList();

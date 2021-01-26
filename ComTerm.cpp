@@ -58,6 +58,16 @@ void ComTerm::tabClose(int index)
     }
     updateFreePortList();
 }
+
+void ComTerm::aboutWindowShow()
+{
+    QMessageBox::about(this, "About", "Test");
+}
+
+void ComTerm::aboutQtWindowShow()
+{
+    QMessageBox::aboutQt(this, "About Qt");
+}
 // -- slots
 
 ComTerm::PortSetting::PortSetting(ComTerm* parent)
