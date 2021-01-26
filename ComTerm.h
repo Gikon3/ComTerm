@@ -21,6 +21,7 @@ public:
 private slots:
     void scanButtonClicked();
     void connectButtonClicked();
+    void tabClose(int index);
 
 private:
     void updateFreePortList();

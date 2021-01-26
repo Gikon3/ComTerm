@@ -4,6 +4,7 @@
 #include <QSerialPort>
 #include <QSerialPortInfo>
 #include <QMessageBox>
+#include <QTabWidget>
 
 ComTerm::ComTerm(QWidget *parent)
     : QMainWindow(parent)
@@ -33,9 +34,15 @@ void ComTerm::connectButtonClicked()
         openPortsList.insert(TabPortPair(tab, port));
         connect(port, &QSerialPort::readyRead, this, &ComTerm::handleReadyRead);
         if(ui->tabWidget->isHidden()) {
+            setMinimumHeight(minimumHeight() + 160);
             ui->tabWidget->show();
         }
     }
+}
+
+void ComTerm::tabClose(int index)
+{
+
 }
 // -- slots
 
