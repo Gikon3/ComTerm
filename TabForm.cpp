@@ -27,5 +27,7 @@ void TabForm::txClearPushButtonClicked()
 
 void TabForm::append(const QByteArray& array)
 {
-    ui->rxWidget->append(array);
+    if(!ui->pausePushButton->isChecked()) {
+        ui->rxWidget->append(array);
+    }
 }
