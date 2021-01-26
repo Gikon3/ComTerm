@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QSerialPort>
+#include <QSerialPortInfo>
 
 namespace Ui {
 class TabForm;
@@ -13,9 +14,9 @@ class TabForm : public QWidget
     Q_OBJECT
 
 public:
-    explicit TabForm(QSerialPort *port = nullptr, QWidget *parent = nullptr);
+    explicit TabForm(const QSerialPortInfo &info, bool *ok = nullptr, QWidget *parent = nullptr);
     ~TabForm();
-    void rxAppend(const QByteArray& array);
+//    void rxAppend(const QByteArray& array);
 
 private slots:
     void rxClearPushButtonClicked();
@@ -24,6 +25,7 @@ private slots:
 
 private:
     void txAppend(const QByteArray& array);
+    void handleReadyRead();
 
 private:
     Ui::TabForm *ui;

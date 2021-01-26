@@ -28,21 +28,29 @@ void ComTerm::scanButtonClicked()
 
 void ComTerm::connectButtonClicked()
 {
-    if(QSerialPort *port = openPort(ui->portsListComboBox->currentText())) {
-        TabForm *tab = new TabForm(port);
-        ui->tabWidget->addTab(tab, port->portName());
-        openPortsList.insert(TabPortPair(tab, port));
-        connect(port, &QSerialPort::readyRead, this, &ComTerm::handleReadyRead);
+    QSerialPortInfo info(ui->portsListComboBox->currentText());
+    bool ok;
+    TabForm *tab = new TabForm(info, &ok, this);
+    if(ok) {
+        ui->tabWidget->addTab(tab, info.portName());
         if(ui->tabWidget->isHidden()) {
-            setMinimumHeight(minimumHeight() + 160);
+            setMinimumHeight(minimumHeight() + heighTab);
             ui->tabWidget->show();
         }
+    }
+    else {
+        QMessageBox::warning(this, "Warning", "Port " + info.portName() + " is open");
+        delete tab;
     }
 }
 
 void ComTerm::tabClose(int index)
 {
-
+    delete ui->tabWidget->widget(index);
+    if(!ui->tabWidget->count()) {
+        ui->tabWidget->hide();
+        setMinimumHeight(minimumHeight() - heighTab);
+    }
 }
 // -- slots
 
@@ -56,28 +64,4 @@ void ComTerm::updateFreePortList()
         }
     }
     ui->portsListComboBox->setCurrentText(curPort);
-}
-
-QSerialPort* ComTerm::openPort(const QString& portName)
-{
-    QSerialPort *port = new QSerialPort();
-    port->setPortName(portName);
-    port->setBaudRate(QSerialPort::Baud115200);
-    port->setDataBits(QSerialPort::Data8);
-    port->setFlowControl(QSerialPort::NoFlowControl);
-    port->setParity(QSerialPort::NoParity);
-    port->setStopBits(QSerialPort::OneStop);
-    if(port->open(QSerialPort::ReadWrite)) {
-        return port;
-    }
-    delete port;
-    QMessageBox::warning(this, "Warning", "Port " + portName + " is open");
-    return nullptr;
-}
-
-void ComTerm::handleReadyRead()
-{
-    for(const TabPortPair& tabPort: openPortsList) {
-        tabPort.first->rxAppend(tabPort.second->readAll());
-    }
 }

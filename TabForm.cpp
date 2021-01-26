@@ -1,16 +1,22 @@
 #include "TabForm.h"
 #include "ui_TabForm.h"
 
-TabForm::TabForm(QSerialPort *port, QWidget *parent) :
+TabForm::TabForm(const QSerialPortInfo &info, bool *ok, QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::TabForm),
-    port(port)
+    ui(new Ui::TabForm)
 {
     ui->setupUi(this);
+    port = new QSerialPort(info, this);
+    *ok = port->open(QSerialPort::ReadWrite);
+    if(*ok) {
+        connect(port, &QSerialPort::readyRead, this, &TabForm::handleReadyRead);
+    }
 }
 
 TabForm::~TabForm()
 {
+    port->close();
+    delete port;
     delete ui;
 }
 
@@ -33,14 +39,14 @@ void TabForm::sendButtonClicked()
 }
 // -- slots
 
-void TabForm::rxAppend(const QByteArray& array)
-{
-    if(!ui->pausePushButton->isChecked()) {
-        ui->rxWidget->append(array);
-    }
-}
-
 void TabForm::txAppend(const QByteArray& array)
 {
     ui->txWidget->append(array);
+}
+
+void TabForm::handleReadyRead()
+{
+    if(!ui->pausePushButton->isChecked()) {
+        ui->rxWidget->append(port->readAll());
+    }
 }

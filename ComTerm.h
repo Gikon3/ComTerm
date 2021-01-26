@@ -25,12 +25,9 @@ private slots:
 
 private:
     void updateFreePortList();
-    QSerialPort* openPort(const QString& portName);
-    void handleReadyRead();
 
 private:
-    using TabPortPair = QPair<TabForm*, QSerialPort*>;
     Ui::ComTerm *ui;
-    QSet<TabPortPair> openPortsList;
+    const int heighTab = 160;
 };
 #endif // COMTERM_H
