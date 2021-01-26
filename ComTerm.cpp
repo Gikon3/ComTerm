@@ -62,7 +62,12 @@ void ComTerm::tabClose(int index)
 
 void ComTerm::aboutWindowShow()
 {
-    QMessageBox::about(this, "About", "Test");
+    QMessageBox::about(this, "About", "<h2>ComTerm</h2>"
+        "<div>Version: 1.0</div>"
+        "<div>GitHub: <a href=\"https://github.com/Gikon3/ComTerm\">click</a></div>"
+        "<div>The program is designed to work with a serial port.</div>"
+        "<div>The program is written in C ++ using the Qt framework.</div>"
+        "<div>© Copyright GukEdition 2021. All rights reserved.</div>");
 }
 
 void ComTerm::aboutQtWindowShow()
