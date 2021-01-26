@@ -51,7 +51,8 @@ void ComTerm::scanButtonClicked()
 
 void ComTerm::connectButtonClicked()
 {
-    QSerialPortInfo info = getPortParam();
+    QString toolTipStr;
+    QSerialPortInfo info = getPortParam(&toolTipStr);
     bool ok;
     TabForm *tab = new TabForm(info, &ok, this);
     if(ok) {
@@ -60,6 +61,7 @@ void ComTerm::connectButtonClicked()
             setMinimumHeight(minimumHeight() + heighTab);
             ui->tabWidget->show();
         }
+        ui->tabWidget->setTabToolTip(ui->tabWidget->count() - 1, toolTipStr);
     }
     else {
         QMessageBox::warning(this, "Warning", "Failed to open port " + info.portName());
@@ -90,36 +92,77 @@ void ComTerm::updateFreePortList()
     ui->portsListComboBox->setCurrentText(curPort);
 }
 
-QSerialPortInfo ComTerm::getPortParam()
+QSerialPortInfo ComTerm::getPortParam(QString *toolTip)
 {
     QSerialPort port(ui->portsListComboBox->currentText());
     for(const BaudRatePair &baud: baudRateList) {
         if(baud.first->isChecked()) {
             port.setBaudRate(baud.second);
+            toolTip->append("Baud Rate: " + QString().setNum(baud.second) + '\n');
             break;
         }
     }
     for(const DataBitsPair &data: dataBitsList) {
         if(data.first->isChecked()) {
             port.setDataBits(data.second);
+            toolTip->append("Data Bits: " + QString().setNum(data.second) + '\n');
             break;
         }
     }
     for(const ParityPair &parity: parityList) {
         if(parity.first->isChecked()) {
             port.setParity(parity.second);
+            QString strParity;
+            if(parity.second == QSerialPort::NoParity) {
+                strParity = "No";
+            }
+            else if(parity.second == QSerialPort::EvenParity) {
+                strParity = "Even";
+            }
+            else if(parity.second == QSerialPort::OddParity) {
+                strParity = "Odd";
+            }
+            else if(parity.second == QSerialPort::SpaceParity) {
+                strParity = "Space";
+            }
+            else if(parity.second == QSerialPort::MarkParity) {
+                strParity = "Mark";
+            }
+            toolTip->append("Parity: " + strParity + '\n');
             break;
         }
     }
     for(const StopBitsPair &stop: stopBitsList) {
         if(stop.first->isChecked()) {
             port.setStopBits(stop.second);
+            QString strStop;
+            if(stop.second == QSerialPort::OneStop) {
+                strStop = "1";
+            }
+            else if(stop.second == QSerialPort::OneAndHalfStop) {
+                strStop = "1.5";
+            }
+            else if(stop.second == QSerialPort::TwoStop) {
+                strStop = "2";
+            }
+            toolTip->append("Stop Bits: " + strStop + '\n');
             break;
         }
     }
     for(const FlowControlPair &flow: flowControlList) {
         if(flow.first->isChecked()) {
             port.setFlowControl(flow.second);
+            QString strFlow;
+            if(flow.second == QSerialPort::NoFlowControl) {
+                strFlow = "No";
+            }
+            else if(flow.second == QSerialPort::HardwareControl) {
+                strFlow = "Hardware";
+            }
+            else if(flow.second == QSerialPort::SoftwareControl) {
+                strFlow = "Software";
+            }
+            toolTip->append("Flow Control: " + strFlow);
             break;
         }
     }

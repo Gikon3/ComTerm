@@ -25,7 +25,7 @@ private slots:
 
 private:
     void updateFreePortList();
-    QSerialPortInfo getPortParam();
+    QSerialPortInfo getPortParam(QString *toolTip);
 
 private:
     Ui::ComTerm *ui;
