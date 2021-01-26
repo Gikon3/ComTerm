@@ -13,6 +13,7 @@ TabForm::~TabForm()
     delete ui;
 }
 
+// slots
 void TabForm::rxClearPushButtonClicked()
 {
     ui->rxWidget->clear();
@@ -21,4 +22,10 @@ void TabForm::rxClearPushButtonClicked()
 void TabForm::txClearPushButtonClicked()
 {
     ui->txWidget->clear();
+}
+// -- slots
+
+void TabForm::append(const QByteArray& array)
+{
+    ui->rxWidget->append(array);
 }

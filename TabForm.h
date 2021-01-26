@@ -14,6 +14,7 @@ class TabForm : public QWidget
 public:
     explicit TabForm(QWidget *parent = nullptr);
     ~TabForm();
+    void append(const QByteArray& array);
 
 private slots:
     void rxClearPushButtonClicked();
