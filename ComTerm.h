@@ -5,6 +5,7 @@
 #include <QList>
 #include "TabForm.h"
 #include <QRadioButton>
+#include <QTranslator>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class ComTerm; }
@@ -24,12 +25,15 @@ private slots:
     void tabClose(int index);
     void aboutWindowShow();
     void aboutQtWindowShow();
+    void languageEnglishClicked();
+    void languageRussiaClicked();
 
 private:
     void updateFreePortList();
     QSerialPortInfo getPortParam(QString *toolTip);
 
 private:
+    const QString version = "1.0.1";
     Ui::ComTerm *ui;
     const int heighTab = 160;
     using BaudRatePair = QPair<QRadioButton*, QSerialPort::BaudRate>;
@@ -46,5 +50,6 @@ private:
         PortSetting(ComTerm* parent);
     };
     PortSetting *portSetting;
+    QTranslator translator;
 };
 #endif // COMTERM_H

@@ -6,13 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>531</width>
+    <width>632</width>
     <height>201</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>531</width>
+    <width>632</width>
     <height>201</height>
    </size>
   </property>
@@ -180,13 +180,13 @@
        <widget class="QGroupBox" name="dataBitsGB">
         <property name="minimumSize">
          <size>
-          <width>51</width>
+          <width>71</width>
           <height>141</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>51</width>
+          <width>71</width>
           <height>141</height>
          </size>
         </property>
@@ -198,7 +198,7 @@
           <rect>
            <x>0</x>
            <y>20</y>
-           <width>38</width>
+           <width>71</width>
            <height>121</height>
           </rect>
          </property>
@@ -245,13 +245,13 @@
        <widget class="QGroupBox" name="parityGB">
         <property name="minimumSize">
          <size>
-          <width>61</width>
+          <width>81</width>
           <height>141</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>61</width>
+          <width>81</width>
           <height>141</height>
          </size>
         </property>
@@ -263,7 +263,7 @@
           <rect>
            <x>0</x>
            <y>20</y>
-           <width>61</width>
+           <width>81</width>
            <height>121</height>
           </rect>
          </property>
@@ -317,13 +317,13 @@
        <widget class="QGroupBox" name="stopBitsGB">
         <property name="minimumSize">
          <size>
-          <width>51</width>
+          <width>81</width>
           <height>141</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>51</width>
+          <width>81</width>
           <height>141</height>
          </size>
         </property>
@@ -335,7 +335,7 @@
           <rect>
            <x>0</x>
            <y>20</y>
-           <width>48</width>
+           <width>81</width>
            <height>121</height>
           </rect>
          </property>
@@ -375,13 +375,13 @@
        <widget class="QGroupBox" name="flowControlGB">
         <property name="minimumSize">
          <size>
-          <width>81</width>
+          <width>111</width>
           <height>141</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>81</width>
+          <width>111</width>
           <height>141</height>
          </size>
         </property>
@@ -393,7 +393,7 @@
           <rect>
            <x>0</x>
            <y>20</y>
-           <width>79</width>
+           <width>111</width>
            <height>121</height>
           </rect>
          </property>
@@ -483,7 +483,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>531</width>
+     <width>632</width>
      <height>20</height>
     </rect>
    </property>
@@ -495,8 +495,8 @@
      <property name="title">
       <string>Language</string>
      </property>
-     <addaction name="actionEnglish_USA"/>
-     <addaction name="actionRussian_Russia"/>
+     <addaction name="actionEnglish_US"/>
+     <addaction name="actionRussian_RU"/>
     </widget>
     <addaction name="menuLanguage"/>
    </widget>
@@ -517,20 +517,20 @@
    <addaction name="menuHelo"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionRussian_Russia">
+  <action name="actionRussian_RU">
    <property name="checkable">
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Russian (Russia)</string>
+    <string>Russian (RU)</string>
    </property>
   </action>
-  <action name="actionEnglish_USA">
+  <action name="actionEnglish_US">
    <property name="checkable">
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>English (USA)</string>
+    <string>English (US)</string>
    </property>
   </action>
   <action name="actionAbout">
@@ -626,6 +626,38 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionEnglish_US</sender>
+   <signal>triggered()</signal>
+   <receiver>ComTerm</receiver>
+   <slot>languageEnglishClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>265</x>
+     <y>100</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionRussian_RU</sender>
+   <signal>triggered()</signal>
+   <receiver>ComTerm</receiver>
+   <slot>languageRussiaClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>265</x>
+     <y>100</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>scanButtonClicked()</slot>
@@ -633,5 +665,7 @@
   <slot>tabClose(int)</slot>
   <slot>aboutWindowShow()</slot>
   <slot>aboutQtWindowShow()</slot>
+  <slot>languageRussiaClicked()</slot>
+  <slot>languageEnglishClicked()</slot>
  </slots>
 </ui>

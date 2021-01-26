@@ -15,6 +15,7 @@ ComTerm::ComTerm(QWidget *parent)
     ui->tabWidget->hide();
     updateFreePortList();
     setWindowIcon(QIcon(":/img/img/icon.png"));
+    ui->actionEnglish_US->setChecked(true);
 }
 
 ComTerm::~ComTerm()
@@ -44,7 +45,7 @@ void ComTerm::connectButtonClicked()
         ui->tabWidget->setTabToolTip(ui->tabWidget->count() - 1, toolTipStr);
     }
     else {
-        QMessageBox::warning(this, "Warning", "Failed to open port " + info.portName());
+        QMessageBox::warning(this, tr("Warning"), tr("Failed to open port ") + info.portName());
         delete tab;
     }
     updateFreePortList();
@@ -62,17 +63,35 @@ void ComTerm::tabClose(int index)
 
 void ComTerm::aboutWindowShow()
 {
-    QMessageBox::about(this, "About", "<h2>ComTerm</h2>"
-        "<div>Version: 1.0</div>"
-        "<div>GitHub: <a href=\"https://github.com/Gikon3/ComTerm\">click</a></div>"
-        "<div>The program is designed to work with a serial port.</div>"
-        "<div>The program is written in C ++ using the Qt framework.</div>"
-        "<div>© Copyright GukEdition 2021. All rights reserved.</div>");
+    QMessageBox::about(this, tr("About"), tr("<h2>ComTerm</h2>")
+        + tr("<div>Version: ") + version + "</div>"
+        + tr("<div>GitHub: <a href=\"https://github.com/Gikon3/ComTerm\">click</a></div>")
+        + tr("<div>The program is designed to work with a serial port.</div>")
+        + tr("<div>The program is written in C ++ using the Qt framework.</div>")
+        + tr("<div>© Copyright GukEdition 2021. All rights reserved.</div>"));
 }
 
 void ComTerm::aboutQtWindowShow()
 {
-    QMessageBox::aboutQt(this, "About Qt");
+    QMessageBox::aboutQt(this, tr("About Qt"));
+}
+
+void ComTerm::languageEnglishClicked()
+{
+    ui->actionEnglish_US->setChecked(true);
+    ui->actionRussian_RU->setChecked(false);
+    translator.load("");
+    qApp->installTranslator(&translator);
+    ui->retranslateUi(this);
+}
+
+void ComTerm::languageRussiaClicked()
+{
+    ui->actionRussian_RU->setChecked(true);
+    ui->actionEnglish_US->setChecked(false);
+    translator.load(":/translations/ComTerm_ru_RU");
+    qApp->installTranslator(&translator);
+    ui->retranslateUi(this);
 }
 // -- slots
 
@@ -121,14 +140,14 @@ QSerialPortInfo ComTerm::getPortParam(QString *toolTip)
     for(const BaudRatePair &baud: portSetting->baudRate) {
         if(baud.first->isChecked()) {
             port.setBaudRate(baud.second);
-            toolTip->append("Baud Rate: " + QString().setNum(baud.second) + '\n');
+            toolTip->append(tr("Baud Rate: ") + QString().setNum(baud.second) + '\n');
             break;
         }
     }
     for(const DataBitsPair &data: portSetting->dataBits) {
         if(data.first->isChecked()) {
             port.setDataBits(data.second);
-            toolTip->append("Data Bits: " + QString().setNum(data.second) + '\n');
+            toolTip->append(tr("Data Bits: ") + QString().setNum(data.second) + '\n');
             break;
         }
     }
@@ -137,21 +156,21 @@ QSerialPortInfo ComTerm::getPortParam(QString *toolTip)
             port.setParity(parity.second);
             QString strParity;
             if(parity.second == QSerialPort::NoParity) {
-                strParity = "No";
+                strParity = tr("No");
             }
             else if(parity.second == QSerialPort::EvenParity) {
-                strParity = "Even";
+                strParity = tr("Even");
             }
             else if(parity.second == QSerialPort::OddParity) {
-                strParity = "Odd";
+                strParity = tr("Odd");
             }
             else if(parity.second == QSerialPort::SpaceParity) {
-                strParity = "Space";
+                strParity = tr("Space");
             }
             else if(parity.second == QSerialPort::MarkParity) {
-                strParity = "Mark";
+                strParity = tr("Mark");
             }
-            toolTip->append("Parity: " + strParity + '\n');
+            toolTip->append(tr("Parity: ") + strParity + '\n');
             break;
         }
     }
@@ -160,15 +179,15 @@ QSerialPortInfo ComTerm::getPortParam(QString *toolTip)
             port.setStopBits(stop.second);
             QString strStop;
             if(stop.second == QSerialPort::OneStop) {
-                strStop = "1";
+                strStop = tr("1");
             }
             else if(stop.second == QSerialPort::OneAndHalfStop) {
-                strStop = "1.5";
+                strStop = tr("1.5");
             }
             else if(stop.second == QSerialPort::TwoStop) {
-                strStop = "2";
+                strStop = tr("2");
             }
-            toolTip->append("Stop Bits: " + strStop + '\n');
+            toolTip->append(tr("Stop Bits: ") + strStop + '\n');
             break;
         }
     }
@@ -177,15 +196,15 @@ QSerialPortInfo ComTerm::getPortParam(QString *toolTip)
             port.setFlowControl(flow.second);
             QString strFlow;
             if(flow.second == QSerialPort::NoFlowControl) {
-                strFlow = "No";
+                strFlow = tr("No");
             }
             else if(flow.second == QSerialPort::HardwareControl) {
-                strFlow = "Hardware";
+                strFlow = tr("Hardware");
             }
             else if(flow.second == QSerialPort::SoftwareControl) {
-                strFlow = "Software";
+                strFlow = tr("Software");
             }
-            toolTip->append("Flow Control: " + strFlow);
+            toolTip->append(tr("Flow Control: ") + strFlow);
             break;
         }
     }
