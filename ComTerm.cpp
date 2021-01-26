@@ -28,7 +28,7 @@ void ComTerm::scanButtonClicked()
 void ComTerm::connectButtonClicked()
 {
     if(QSerialPort *port = openPort(ui->portsListComboBox->currentText())) {
-        TabForm *tab = new TabForm;
+        TabForm *tab = new TabForm(port);
         ui->tabWidget->addTab(tab, port->portName());
         openPortsList.insert(TabPortPair(tab, port));
         connect(port, &QSerialPort::readyRead, this, &ComTerm::handleReadyRead);

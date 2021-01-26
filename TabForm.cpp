@@ -1,9 +1,10 @@
 #include "TabForm.h"
 #include "ui_TabForm.h"
 
-TabForm::TabForm(QWidget *parent) :
+TabForm::TabForm(QSerialPort *port, QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::TabForm)
+    ui(new Ui::TabForm),
+    port(port)
 {
     ui->setupUi(this);
 }
