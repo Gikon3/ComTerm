@@ -46,8 +46,8 @@ void ComDataForm::append(const QByteArray& array)
     QString strHex;
     QString formatStr(array.toHex().toUpper());
     for(int i = 0; i < formatStr.size() / 2; ++i) {
-        strHex += formatStr[i];
-        strHex += formatStr[i+1] + " ";
+        strHex += formatStr[i * 2];
+        strHex += formatStr[i * 2 + 1] + " ";
     }
     ui->hexText->moveCursor(QTextCursor::End);
     ui->hexText->insertPlainText(strHex);
