@@ -35,10 +35,14 @@ private:
     using ParityPair = QPair<QRadioButton*, QSerialPort::Parity>;
     using StopBitsPair = QPair<QRadioButton*, QSerialPort::StopBits>;
     using FlowControlPair = QPair<QRadioButton*, QSerialPort::FlowControl>;
-    QList<BaudRatePair> baudRateList;
-    QList<DataBitsPair> dataBitsList;
-    QList<ParityPair> parityList;
-    QList<StopBitsPair> stopBitsList;
-    QList<FlowControlPair> flowControlList;
+    struct PortSetting {
+        QList<BaudRatePair> baudRate;
+        QList<DataBitsPair> dataBits;
+        QList<ParityPair> parity;
+        QList<StopBitsPair> stopBits;
+        QList<FlowControlPair> flowControl;
+        PortSetting(ComTerm* parent);
+    };
+    PortSetting *portSetting;
 };
 #endif // COMTERM_H

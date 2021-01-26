@@ -7,39 +7,18 @@
 #include <QTabWidget>
 
 ComTerm::ComTerm(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::ComTerm)
+    : QMainWindow(parent),
+      ui(new Ui::ComTerm)
 {
     ui->setupUi(this);
+    portSetting = new PortSetting(this);
     ui->tabWidget->hide();
     updateFreePortList();
-    baudRateList = {BaudRatePair(ui->baudRate1200RB, QSerialPort::Baud1200),
-                    BaudRatePair(ui->baudRate2400RB, QSerialPort::Baud2400),
-                    BaudRatePair(ui->baudRate4800RB, QSerialPort::Baud4800),
-                    BaudRatePair(ui->baudRate9600RB, QSerialPort::Baud9600),
-                    BaudRatePair(ui->baudRate19200RB, QSerialPort::Baud19200),
-                    BaudRatePair(ui->baudRate38400RB, QSerialPort::Baud38400),
-                    BaudRatePair(ui->baudRate57600RB, QSerialPort::Baud57600),
-                    BaudRatePair(ui->baudRate115200RB, QSerialPort::Baud115200)};
-    dataBitsList = {DataBitsPair(ui->dataBits5RB, QSerialPort::Data5),
-                    DataBitsPair(ui->dataBits6RB, QSerialPort::Data6),
-                    DataBitsPair(ui->dataBits7RB, QSerialPort::Data7),
-                    DataBitsPair(ui->dataBits8RB, QSerialPort::Data8)};
-    parityList = {ParityPair(ui->parityNoneRB, QSerialPort::NoParity),
-                  ParityPair(ui->parityEvenRB, QSerialPort::EvenParity),
-                  ParityPair(ui->parityOddRB, QSerialPort::OddParity),
-                  ParityPair(ui->paritySpaceRB, QSerialPort::SpaceParity),
-                  ParityPair(ui->parityMarkRB, QSerialPort::MarkParity)};
-    stopBitsList = {StopBitsPair(ui->stopBits1RB, QSerialPort::OneStop),
-                    StopBitsPair(ui->stopBits15RB, QSerialPort::OneAndHalfStop),
-                    StopBitsPair(ui->stopBits2RB, QSerialPort::TwoStop)};
-    flowControlList = {FlowControlPair(ui->flowControlNoRB, QSerialPort::NoFlowControl),
-                       FlowControlPair(ui->flowControlHardRB, QSerialPort::HardwareControl),
-                       FlowControlPair(ui->flowControlSoftRB, QSerialPort::SoftwareControl)};
 }
 
 ComTerm::~ComTerm()
 {
+    delete portSetting;
     delete ui;
 }
 
@@ -80,6 +59,33 @@ void ComTerm::tabClose(int index)
 }
 // -- slots
 
+ComTerm::PortSetting::PortSetting(ComTerm* parent)
+{
+    baudRate = {BaudRatePair(parent->ui->baudRate1200RB, QSerialPort::Baud1200),
+                BaudRatePair(parent->ui->baudRate2400RB, QSerialPort::Baud2400),
+                BaudRatePair(parent->ui->baudRate4800RB, QSerialPort::Baud4800),
+                BaudRatePair(parent->ui->baudRate9600RB, QSerialPort::Baud9600),
+                BaudRatePair(parent->ui->baudRate19200RB, QSerialPort::Baud19200),
+                BaudRatePair(parent->ui->baudRate38400RB, QSerialPort::Baud38400),
+                BaudRatePair(parent->ui->baudRate57600RB, QSerialPort::Baud57600),
+                BaudRatePair(parent->ui->baudRate115200RB, QSerialPort::Baud115200)};
+    dataBits = {DataBitsPair(parent->ui->dataBits5RB, QSerialPort::Data5),
+                DataBitsPair(parent->ui->dataBits6RB, QSerialPort::Data6),
+                DataBitsPair(parent->ui->dataBits7RB, QSerialPort::Data7),
+                DataBitsPair(parent->ui->dataBits8RB, QSerialPort::Data8)};
+    parity = {ParityPair(parent->ui->parityNoneRB, QSerialPort::NoParity),
+              ParityPair(parent->ui->parityEvenRB, QSerialPort::EvenParity),
+              ParityPair(parent->ui->parityOddRB, QSerialPort::OddParity),
+              ParityPair(parent->ui->paritySpaceRB, QSerialPort::SpaceParity),
+              ParityPair(parent->ui->parityMarkRB, QSerialPort::MarkParity)};
+    stopBits = {StopBitsPair(parent->ui->stopBits1RB, QSerialPort::OneStop),
+                StopBitsPair(parent->ui->stopBits15RB, QSerialPort::OneAndHalfStop),
+                StopBitsPair(parent->ui->stopBits2RB, QSerialPort::TwoStop)};
+    flowControl = {FlowControlPair(parent->ui->flowControlNoRB, QSerialPort::NoFlowControl),
+                   FlowControlPair(parent->ui->flowControlHardRB, QSerialPort::HardwareControl),
+                   FlowControlPair(parent->ui->flowControlSoftRB, QSerialPort::SoftwareControl)};
+}
+
 void ComTerm::updateFreePortList()
 {
     QString curPort = ui->portsListComboBox->currentText();
@@ -95,21 +101,21 @@ void ComTerm::updateFreePortList()
 QSerialPortInfo ComTerm::getPortParam(QString *toolTip)
 {
     QSerialPort port(ui->portsListComboBox->currentText());
-    for(const BaudRatePair &baud: baudRateList) {
+    for(const BaudRatePair &baud: portSetting->baudRate) {
         if(baud.first->isChecked()) {
             port.setBaudRate(baud.second);
             toolTip->append("Baud Rate: " + QString().setNum(baud.second) + '\n');
             break;
         }
     }
-    for(const DataBitsPair &data: dataBitsList) {
+    for(const DataBitsPair &data: portSetting->dataBits) {
         if(data.first->isChecked()) {
             port.setDataBits(data.second);
             toolTip->append("Data Bits: " + QString().setNum(data.second) + '\n');
             break;
         }
     }
-    for(const ParityPair &parity: parityList) {
+    for(const ParityPair &parity: portSetting->parity) {
         if(parity.first->isChecked()) {
             port.setParity(parity.second);
             QString strParity;
@@ -132,7 +138,7 @@ QSerialPortInfo ComTerm::getPortParam(QString *toolTip)
             break;
         }
     }
-    for(const StopBitsPair &stop: stopBitsList) {
+    for(const StopBitsPair &stop: portSetting->stopBits) {
         if(stop.first->isChecked()) {
             port.setStopBits(stop.second);
             QString strStop;
@@ -149,7 +155,7 @@ QSerialPortInfo ComTerm::getPortParam(QString *toolTip)
             break;
         }
     }
-    for(const FlowControlPair &flow: flowControlList) {
+    for(const FlowControlPair &flow: portSetting->flowControl) {
         if(flow.first->isChecked()) {
             port.setFlowControl(flow.second);
             QString strFlow;
