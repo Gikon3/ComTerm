@@ -56,6 +56,7 @@ void ComTerm::tabClose(int index)
         ui->tabWidget->hide();
         setMinimumHeight(minimumHeight() - heighTab);
     }
+    updateFreePortList();
 }
 // -- slots
 
