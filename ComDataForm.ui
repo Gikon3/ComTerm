@@ -90,13 +90,13 @@
       </property>
       <property name="minimumSize">
        <size>
-        <width>91</width>
+        <width>106</width>
         <height>0</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>91</width>
+        <width>106</width>
         <height>16777215</height>
        </size>
       </property>
@@ -110,13 +110,14 @@
       <property name="layoutDirection">
        <enum>Qt::RightToLeft</enum>
       </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhMultiLine</set>
+      </property>
       <property name="readOnly">
        <bool>true</bool>
       </property>
       <property name="plainText">
-       <string>01 23 45 67
-   89 AB CD
-EF</string>
+       <string/>
       </property>
      </widget>
     </widget>
