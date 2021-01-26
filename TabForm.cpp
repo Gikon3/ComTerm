@@ -24,11 +24,23 @@ void TabForm::txClearPushButtonClicked()
 {
     ui->txWidget->clear();
 }
+
+void TabForm::sendButtonClicked()
+{
+    QByteArray array = QString(ui->txLline->text()).toUtf8();
+    port->write(array);
+    txAppend(array);
+}
 // -- slots
 
-void TabForm::append(const QByteArray& array)
+void TabForm::rxAppend(const QByteArray& array)
 {
     if(!ui->pausePushButton->isChecked()) {
         ui->rxWidget->append(array);
     }
+}
+
+void TabForm::txAppend(const QByteArray& array)
+{
+    ui->txWidget->append(array);
 }

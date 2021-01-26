@@ -71,6 +71,6 @@ QSerialPort* ComTerm::openPort(const QString& portName)
 void ComTerm::handleReadyRead()
 {
     for(const TabPortPair& tabPort: openPortsList) {
-        tabPort.first->append(tabPort.second->readAll());
+        tabPort.first->rxAppend(tabPort.second->readAll());
     }
 }

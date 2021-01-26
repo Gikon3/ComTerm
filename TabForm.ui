@@ -165,8 +165,8 @@
    <slot>txClearPushButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>230</x>
-     <y>55</y>
+     <x>492</x>
+     <y>30</y>
     </hint>
     <hint type="destinationlabel">
      <x>230</x>
@@ -181,8 +181,8 @@
    <slot>rxClearPushButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>40</x>
-     <y>44</y>
+     <x>51</x>
+     <y>31</y>
     </hint>
     <hint type="destinationlabel">
      <x>43</x>
@@ -190,9 +190,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>sendPushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>TabForm</receiver>
+   <slot>sendButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>798</x>
+     <y>51</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>845</x>
+     <y>63</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>rxClearPushButtonClicked()</slot>
   <slot>txClearPushButtonClicked()</slot>
+  <slot>sendButtonClicked()</slot>
  </slots>
 </ui>
