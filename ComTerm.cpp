@@ -14,6 +14,7 @@ ComTerm::ComTerm(QWidget *parent)
     portSetting = new PortSetting(this);
     ui->tabWidget->hide();
     updateFreePortList();
+    setWindowIcon(QIcon(":/img/img/icon.png"));
 }
 
 ComTerm::~ComTerm()
