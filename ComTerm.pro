@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -9,14 +9,20 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    ComDataForm.cpp \
+    TabForm.cpp \
     main.cpp \
     ComTerm.cpp
 
 HEADERS += \
-    ComTerm.h
+    ComDataForm.h \
+    ComTerm.h \
+    TabForm.h
 
 FORMS += \
-    ComTerm.ui
+    ComDataForm.ui \
+    ComTerm.ui \
+    TabForm.ui
 
 TRANSLATIONS += \
     ComTerm_ru_RU.ts
