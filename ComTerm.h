@@ -7,6 +7,7 @@
 #include <QRadioButton>
 #include <QTranslator>
 #include <QDockWidget>
+#include "CloseEventFilter.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class ComTerm; }
@@ -54,5 +55,6 @@ private:
     };
     PortSetting *portSetting;
     QTranslator translator;
+    CloseEventFilter *closeFilter;
 };
 #endif // COMTERM_H
