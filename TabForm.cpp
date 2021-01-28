@@ -1,6 +1,5 @@
 #include "TabForm.h"
 #include "ui_TabForm.h"
-#include <QFileInfo>
 #include <QFileDialog>
 #include <QMessageBox>
 
@@ -62,13 +61,13 @@ void TabForm::recordButtonClicked()
     }
 
     recordFile->setFileName(ui->recordLine->text());
-    if(!recordFile->open(QIODevice::WriteOnly)) {
-        QMessageBox::warning(this, tr("Warning"), tr("Could not open file"));
+    if(recordFile->size()
+            && QMessageBox::question(this, tr("Warning"), tr("The file is not empty!\nOverwrite?")) == QMessageBox::No) {
         ui->recordButton->setChecked(false);
         return;
     }
-    if(QFileInfo(*recordFile).size()
-            && QMessageBox::question(this, tr("Warning"), tr("The file is not empty!\nOverwrite?")) == QMessageBox::No) {
+    if(!recordFile->open(QIODevice::WriteOnly)) {
+        QMessageBox::warning(this, tr("Warning"), tr("Could not open file"));
         ui->recordButton->setChecked(false);
         return;
     }
