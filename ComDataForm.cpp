@@ -57,3 +57,15 @@ void ComDataForm::retranslate()
 {
     ui->retranslateUi(this);
 }
+
+void ComDataForm::appendStartFile()
+{
+    ui->asciiText->appendPlainText(tr("< Start of file >\n"));
+    ui->hexText->appendPlainText("\n");
+}
+
+void ComDataForm::appendEndFile()
+{
+    ui->asciiText->appendPlainText(tr("< End of file >\n"));
+    ui->hexText->appendPlainText("\n");
+}

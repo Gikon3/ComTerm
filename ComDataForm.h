@@ -17,6 +17,8 @@ public:
     void clear();
     void append(const QByteArray& array);
     void retranslate();
+    void appendStartFile();
+    void appendEndFile();
 
 private slots:
     void asciiComboBoxClicked(bool check);
