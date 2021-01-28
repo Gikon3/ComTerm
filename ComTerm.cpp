@@ -8,7 +8,8 @@
 
 ComTerm::ComTerm(QWidget *parent)
     : QMainWindow(parent),
-      ui(new Ui::ComTerm)
+      ui(new Ui::ComTerm),
+      closeFilter(new CloseEventFilter(this))
 {
     ui->setupUi(this);
     portSetting = new PortSetting(this);
@@ -18,11 +19,13 @@ ComTerm::ComTerm(QWidget *parent)
     ui->actionEnglish_US->setChecked(true);
     initAsciiTable();
     ui->dockWidget->hide();
+    ui->dockWidget->installEventFilter(closeFilter);
 }
 
 ComTerm::~ComTerm()
 {
     delete portSetting;
+    delete closeFilter;
     delete ui;
 }
 
