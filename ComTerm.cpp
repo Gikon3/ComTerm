@@ -63,7 +63,7 @@ void ComTerm::tabClose(int index)
 
 void ComTerm::aboutWindowShow()
 {
-    QMessageBox::about(this, tr("About"), tr("<h2>ComTerm</h2>")
+    QMessageBox::about(this, tr("About"), "<h2>ComTerm</h2>"
         + tr("<div>Version: ") + version + "</div>"
         + tr("<div>GitHub: <a href=\"https://github.com/Gikon3/ComTerm\">click</a></div>")
         + tr("<div>The program is designed to work with a serial port.</div>")
@@ -146,14 +146,14 @@ QSerialPortInfo ComTerm::getPortParam(QString *toolTip)
     for(const BaudRatePair &baud: portSetting->baudRate) {
         if(baud.first->isChecked()) {
             port.setBaudRate(baud.second);
-            toolTip->append(tr("Baud Rate: ") + QString().setNum(baud.second) + '\n');
+            toolTip->append(tr("Baud rate: ") + QString().setNum(baud.second) + '\n');
             break;
         }
     }
     for(const DataBitsPair &data: portSetting->dataBits) {
         if(data.first->isChecked()) {
             port.setDataBits(data.second);
-            toolTip->append(tr("Data Bits: ") + QString().setNum(data.second) + '\n');
+            toolTip->append(tr("Data bits: ") + QString().setNum(data.second) + '\n');
             break;
         }
     }
@@ -185,15 +185,15 @@ QSerialPortInfo ComTerm::getPortParam(QString *toolTip)
             port.setStopBits(stop.second);
             QString strStop;
             if(stop.second == QSerialPort::OneStop) {
-                strStop = tr("1");
+                strStop = "1";
             }
             else if(stop.second == QSerialPort::OneAndHalfStop) {
-                strStop = tr("1.5");
+                strStop = "1.5";
             }
             else if(stop.second == QSerialPort::TwoStop) {
-                strStop = tr("2");
+                strStop = "2";
             }
-            toolTip->append(tr("Stop Bits: ") + strStop + '\n');
+            toolTip->append(tr("Stop bits: ") + strStop + '\n');
             break;
         }
     }
@@ -210,7 +210,7 @@ QSerialPortInfo ComTerm::getPortParam(QString *toolTip)
             else if(flow.second == QSerialPort::SoftwareControl) {
                 strFlow = tr("Software");
             }
-            toolTip->append(tr("Flow Control: ") + strFlow);
+            toolTip->append(tr("Flow control: ") + strFlow);
             break;
         }
     }

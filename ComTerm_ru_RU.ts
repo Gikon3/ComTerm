@@ -4,28 +4,22 @@
 <context>
     <name>ComDataForm</name>
     <message>
-        <location filename="ComDataForm.ui" line="14"/>
-        <source>Form</source>
-        <translation>Форма</translation>
+        <location filename="ComDataForm.cpp" line="63"/>
+        <source>&lt; Start of file &gt;
+</source>
+        <translation>&lt; Начало файла &gt;
+</translation>
     </message>
     <message>
-        <location filename="ComDataForm.ui" line="28"/>
-        <source>ASCII</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ComDataForm.ui" line="44"/>
-        <source>HEX</source>
-        <translation type="unfinished"></translation>
+        <location filename="ComDataForm.cpp" line="69"/>
+        <source>&lt; End of file &gt;
+</source>
+        <translation>&lt; Конец файла &gt;
+</translation>
     </message>
 </context>
 <context>
     <name>ComTerm</name>
-    <message>
-        <location filename="ComTerm.ui" line="20"/>
-        <source>ComTerm</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="ComTerm.ui" line="47"/>
         <source>COM port</source>
@@ -47,69 +41,9 @@
         <translation>Скорость</translation>
     </message>
     <message>
-        <location filename="ComTerm.ui" line="119"/>
-        <source>1200</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ComTerm.ui" line="129"/>
-        <source>19200</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ComTerm.ui" line="136"/>
-        <source>2400</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ComTerm.ui" line="143"/>
-        <source>38400</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ComTerm.ui" line="150"/>
-        <source>4800</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ComTerm.ui" line="157"/>
-        <source>57600</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ComTerm.ui" line="164"/>
-        <source>9600</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ComTerm.ui" line="171"/>
-        <source>115200</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="ComTerm.ui" line="194"/>
         <source>Data bits</source>
         <translation>Бит данных</translation>
-    </message>
-    <message>
-        <location filename="ComTerm.ui" line="212"/>
-        <source>5</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ComTerm.ui" line="222"/>
-        <source>6</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ComTerm.ui" line="229"/>
-        <source>7</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ComTerm.ui" line="236"/>
-        <source>8</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="ComTerm.ui" line="259"/>
@@ -119,32 +53,32 @@
     <message>
         <location filename="ComTerm.ui" line="277"/>
         <location filename="ComTerm.ui" line="407"/>
-        <location filename="ComTerm.cpp" line="159"/>
-        <location filename="ComTerm.cpp" line="199"/>
+        <location filename="ComTerm.cpp" line="165"/>
+        <location filename="ComTerm.cpp" line="205"/>
         <source>No</source>
         <translation>Нету</translation>
     </message>
     <message>
         <location filename="ComTerm.ui" line="287"/>
-        <location filename="ComTerm.cpp" line="162"/>
+        <location filename="ComTerm.cpp" line="168"/>
         <source>Even</source>
         <translation>Четный</translation>
     </message>
     <message>
         <location filename="ComTerm.ui" line="294"/>
-        <location filename="ComTerm.cpp" line="165"/>
+        <location filename="ComTerm.cpp" line="171"/>
         <source>Odd</source>
         <translation>Нечетный</translation>
     </message>
     <message>
         <location filename="ComTerm.ui" line="301"/>
-        <location filename="ComTerm.cpp" line="168"/>
+        <location filename="ComTerm.cpp" line="174"/>
         <source>Space</source>
         <translation>&quot;0&quot;</translation>
     </message>
     <message>
         <location filename="ComTerm.ui" line="308"/>
-        <location filename="ComTerm.cpp" line="171"/>
+        <location filename="ComTerm.cpp" line="177"/>
         <source>Mark</source>
         <translation>&quot;1&quot;</translation>
     </message>
@@ -154,37 +88,19 @@
         <translation>Стоповых бит</translation>
     </message>
     <message>
-        <location filename="ComTerm.ui" line="349"/>
-        <location filename="ComTerm.cpp" line="182"/>
-        <source>1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ComTerm.ui" line="359"/>
-        <location filename="ComTerm.cpp" line="185"/>
-        <source>1.5</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ComTerm.ui" line="366"/>
-        <location filename="ComTerm.cpp" line="188"/>
-        <source>2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="ComTerm.ui" line="389"/>
         <source>Flow Control</source>
         <translation>Контроллер потока</translation>
     </message>
     <message>
         <location filename="ComTerm.ui" line="417"/>
-        <location filename="ComTerm.cpp" line="202"/>
+        <location filename="ComTerm.cpp" line="208"/>
         <source>Hardware</source>
         <translation>Аппаратно</translation>
     </message>
     <message>
         <location filename="ComTerm.ui" line="424"/>
-        <location filename="ComTerm.cpp" line="205"/>
+        <location filename="ComTerm.cpp" line="211"/>
         <source>Software</source>
         <translation>Программно</translation>
     </message>
@@ -247,11 +163,6 @@
         <translation type="vanished">&lt;h2&gt;ComTerm&lt;/h2&gt;&lt;div&gt;Версия: 1.0&lt;/div&gt;&lt;div&gt;GitHub: &lt;a href=&quot;https://github.com/Gikon3/ComTerm&quot;&gt;клик&lt;/a&gt;&lt;/div&gt;&lt;div&gt;Программа предназначена для работы с последовательным портом.&lt;/div&gt;&lt;div&gt;Программа написана на C ++ с использованием фреймворка Qt.&lt;/div&gt;&lt;div&gt;© Copyright GukEdition 2021. Все права защищены.&lt;/div&gt;</translation>
     </message>
     <message>
-        <location filename="ComTerm.cpp" line="66"/>
-        <source>&lt;h2&gt;ComTerm&lt;/h2&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="ComTerm.cpp" line="67"/>
         <source>&lt;div&gt;Version: </source>
         <translation>&lt;div&gt;Версия: </translation>
@@ -277,53 +188,98 @@
         <translation>&lt;div&gt;© Copyright GukEdition 2021. Все права защищены.&lt;/div&gt;</translation>
     </message>
     <message>
-        <location filename="ComTerm.cpp" line="143"/>
-        <source>Baud Rate: </source>
+        <location filename="ComTerm.cpp" line="149"/>
+        <source>Baud rate: </source>
+        <oldsource>Baud Rate: </oldsource>
         <translation>Скорость: </translation>
     </message>
     <message>
-        <location filename="ComTerm.cpp" line="150"/>
-        <source>Data Bits: </source>
+        <location filename="ComTerm.cpp" line="156"/>
+        <source>Data bits: </source>
+        <oldsource>Data Bits: </oldsource>
         <translation>Бит данных: </translation>
     </message>
     <message>
-        <location filename="ComTerm.cpp" line="173"/>
+        <location filename="ComTerm.cpp" line="179"/>
         <source>Parity: </source>
         <translation>Четность: </translation>
     </message>
     <message>
-        <location filename="ComTerm.cpp" line="190"/>
-        <source>Stop Bits: </source>
+        <location filename="ComTerm.cpp" line="196"/>
+        <source>Stop bits: </source>
+        <oldsource>Stop Bits: </oldsource>
         <translation>Стоповых бит: </translation>
     </message>
     <message>
-        <location filename="ComTerm.cpp" line="207"/>
-        <source>Flow Control: </source>
+        <location filename="ComTerm.cpp" line="213"/>
+        <source>Flow control: </source>
+        <oldsource>Flow Control: </oldsource>
         <translation>Контроллер потока: </translation>
     </message>
 </context>
 <context>
     <name>TabForm</name>
     <message>
-        <location filename="TabForm.ui" line="14"/>
-        <source>Form</source>
-        <translation>Форма</translation>
+        <location filename="TabForm.ui" line="60"/>
+        <location filename="TabForm.cpp" line="57"/>
+        <source>Start recording</source>
+        <translation>Начать запись</translation>
     </message>
     <message>
-        <location filename="TabForm.ui" line="44"/>
-        <location filename="TabForm.ui" line="98"/>
+        <location filename="TabForm.ui" line="80"/>
+        <location filename="TabForm.ui" line="155"/>
         <source>Clear</source>
         <translation>Очистить</translation>
     </message>
     <message>
-        <location filename="TabForm.ui" line="57"/>
+        <location filename="TabForm.ui" line="93"/>
         <source>Pause</source>
         <translation>Пауза</translation>
     </message>
     <message>
-        <location filename="TabForm.ui" line="123"/>
+        <location filename="TabForm.ui" line="140"/>
+        <source>Send file</source>
+        <translation>Отправить файл</translation>
+    </message>
+    <message>
+        <location filename="TabForm.ui" line="180"/>
         <source>Send</source>
         <translation>Отправить</translation>
+    </message>
+    <message>
+        <location filename="TabForm.cpp" line="65"/>
+        <location filename="TabForm.cpp" line="70"/>
+        <location filename="TabForm.cpp" line="92"/>
+        <source>Warning</source>
+        <translation>Предупреждение</translation>
+    </message>
+    <message>
+        <location filename="TabForm.cpp" line="65"/>
+        <source>The file is not empty!
+Overwrite?</source>
+        <translation>Файл непустой!
+Перезаписать?</translation>
+    </message>
+    <message>
+        <location filename="TabForm.cpp" line="70"/>
+        <location filename="TabForm.cpp" line="92"/>
+        <source>Could not open file</source>
+        <translation>Не удалось открыть файл</translation>
+    </message>
+    <message>
+        <location filename="TabForm.cpp" line="75"/>
+        <source>End recording</source>
+        <translation>Закончить запись</translation>
+    </message>
+    <message>
+        <location filename="TabForm.cpp" line="130"/>
+        <source>Open file</source>
+        <translation>Открыть файл</translation>
+    </message>
+    <message>
+        <location filename="TabForm.cpp" line="131"/>
+        <source>All files (*.*);; Text document (*.txt *.log)</source>
+        <translation>Все файлы (*.*);; Текстовый документ (*.txt *.log)</translation>
     </message>
 </context>
 </TS>
