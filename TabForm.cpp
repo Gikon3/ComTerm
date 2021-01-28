@@ -60,7 +60,11 @@ void TabForm::recordButtonClicked()
         return;
     }
 
-    recordFile->setFileName(ui->recordLine->text());
+    QString filename = ui->recordLine->text();
+    if(!filename.size()) {
+        return;
+    }
+    recordFile->setFileName(filename);
     if(recordFile->size()
             && QMessageBox::question(this, tr("Warning"), tr("The file is not empty!\nOverwrite?")) == QMessageBox::No) {
         ui->recordButton->setChecked(false);
