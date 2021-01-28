@@ -33,9 +33,9 @@ private:
     QSerialPortInfo getPortParam(QString *toolTip);
 
 private:
-    const QString version = "1.0.3";
+    const QString version = "1.1.0";
     Ui::ComTerm *ui;
-    const int heighTab = 160;
+    const int heighTab = 200;
     using BaudRatePair = QPair<QRadioButton*, QSerialPort::BaudRate>;
     using DataBitsPair = QPair<QRadioButton*, QSerialPort::DataBits>;
     using ParityPair = QPair<QRadioButton*, QSerialPort::Parity>;
