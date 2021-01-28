@@ -6,6 +6,7 @@
 #include "TabForm.h"
 #include <QRadioButton>
 #include <QTranslator>
+#include <QDockWidget>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class ComTerm; }
@@ -27,10 +28,12 @@ private slots:
     void aboutQtWindowShow();
     void languageEnglishClicked();
     void languageRussiaClicked();
+    void showDockWidget();
 
 private:
     void updateFreePortList();
     QSerialPortInfo getPortParam(QString *toolTip);
+    void initAsciiTable();
 
 private:
     const QString version = "1.1.1";

@@ -16,6 +16,8 @@ ComTerm::ComTerm(QWidget *parent)
     updateFreePortList();
     setWindowIcon(QIcon(":/img/img/icon.png"));
     ui->actionEnglish_US->setChecked(true);
+    initAsciiTable();
+    ui->dockWidget->hide();
 }
 
 ComTerm::~ComTerm()
@@ -98,6 +100,19 @@ void ComTerm::languageRussiaClicked()
     for(int i = 0; i < ui->tabWidget->count(); ++i) {
         dynamic_cast<TabForm*>(ui->tabWidget->widget(i))->retranslate();
     }
+}
+
+void ComTerm::showDockWidget()
+{
+    if(ui->dockWidget->isHidden()) {
+        ui->dockWidget->show();
+        setMinimumWidth(minimumWidth() + ui->dockWidget->minimumWidth());
+        ui->actionASCII_table->setChecked(true);
+        return;
+    }
+    ui->dockWidget->hide();
+    setMinimumWidth(minimumWidth() - ui->dockWidget->minimumWidth());
+    ui->actionASCII_table->setChecked(false);
 }
 // -- slots
 
@@ -215,4 +230,24 @@ QSerialPortInfo ComTerm::getPortParam(QString *toolTip)
         }
     }
     return QSerialPortInfo(port);
+}
+
+void ComTerm::initAsciiTable()
+{
+    ui->tableWidget->setColumnWidth(0, 30);
+    ui->tableWidget->setColumnWidth(1, 30);
+    ui->tableWidget->setColumnWidth(2, 45);
+    ui->tableWidget->setColumnWidth(3, 190);
+    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+    ui->tableWidget->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+    for(int row = 0; row < ui->tableWidget->rowCount(); ++row) {
+        for(int col = 0; col < ui->tableWidget->columnCount(); ++col) {
+            ui->tableWidget->item(row, col)->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
+            ui->tableWidget->item(row, col)->setTextAlignment(Qt::AlignCenter);
+        }
+    }
+    for(int row = 0; row < ui->tableWidget->rowCount(); ++row) {
+        ui->tableWidget->item(row, ui->tableWidget->columnCount() - 1)->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
+        ui->tableWidget->item(row, ui->tableWidget->columnCount() - 1)->setTextAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+    }
 }
