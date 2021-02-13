@@ -5,6 +5,7 @@
 #include <QSerialPortInfo>
 #include <QMessageBox>
 #include <QTabWidget>
+#include "CloseEventFilter.h"
 
 ComTerm::ComTerm(QWidget *parent)
     : QMainWindow(parent),
@@ -20,6 +21,7 @@ ComTerm::ComTerm(QWidget *parent)
     initAsciiTable();
     ui->dockWidget->hide();
     ui->dockWidget->installEventFilter(closeFilter);
+    connect(closeFilter, &CloseEventFilter::closed, this, &ComTerm::showDockWidget);
 }
 
 ComTerm::~ComTerm()
