@@ -3481,22 +3481,6 @@
     </hint>
    </hints>
   </connection>
-  <connection>
-   <sender>dockWidget</sender>
-   <signal>dockLocationChanged(Qt::DockWidgetArea)</signal>
-   <receiver>ComTerm</receiver>
-   <slot>dockWidgetLocationChanged(Qt::DockWidgetArea)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>486</x>
-     <y>109</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>315</x>
-     <y>109</y>
-    </hint>
-   </hints>
-  </connection>
  </connections>
  <slots>
   <slot>scanButtonClicked()</slot>
@@ -3507,6 +3491,5 @@
   <slot>languageRussiaClicked()</slot>
   <slot>languageEnglishClicked()</slot>
   <slot>showDockWidget()</slot>
-  <slot>dockWidgetLocationChanged(Qt::DockWidgetArea)</slot>
  </slots>
 </ui>
