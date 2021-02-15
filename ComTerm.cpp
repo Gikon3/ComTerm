@@ -152,11 +152,14 @@ void ComTerm::updateFreePortList()
 {
     QString curPort = ui->portsListComboBox->currentText();
     ui->portsListComboBox->clear();
+    QStringList portList;
     for(const QSerialPortInfo& port: QSerialPortInfo().availablePorts()) {
         if(!port.isBusy()) {
-            ui->portsListComboBox->addItem(port.portName());
+            portList.append(port.portName());
         }
     }
+    portList.sort();
+    ui->portsListComboBox->addItems(portList);
     ui->portsListComboBox->setCurrentText(curPort);
 }
 
