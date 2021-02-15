@@ -33,7 +33,11 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
-          <widget class="QLineEdit" name="recordLine"/>
+          <widget class="QLineEdit" name="recordLine">
+           <property name="placeholderText">
+            <string>Enter file name</string>
+           </property>
+          </widget>
          </item>
          <item>
           <widget class="QToolButton" name="recordToolButton">
@@ -125,7 +129,11 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
-          <widget class="QLineEdit" name="sendFileLine"/>
+          <widget class="QLineEdit" name="sendFileLine">
+           <property name="placeholderText">
+            <string>Enter file name</string>
+           </property>
+          </widget>
          </item>
          <item>
           <widget class="QToolButton" name="sendFileToolButton">
@@ -165,6 +173,9 @@
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
+           </property>
+           <property name="placeholderText">
+            <string>String to send</string>
            </property>
           </widget>
          </item>
