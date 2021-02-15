@@ -872,29 +872,40 @@
 <context>
     <name>TabForm</name>
     <message>
-        <location filename="TabForm.ui" line="60"/>
+        <location filename="TabForm.ui" line="38"/>
+        <location filename="TabForm.ui" line="134"/>
+        <source>Enter file name</source>
+        <translation>Введите имя файла</translation>
+    </message>
+    <message>
+        <location filename="TabForm.ui" line="64"/>
         <location filename="TabForm.cpp" line="57"/>
         <source>Start recording</source>
         <translation>Начать запись</translation>
     </message>
     <message>
-        <location filename="TabForm.ui" line="80"/>
-        <location filename="TabForm.ui" line="155"/>
+        <location filename="TabForm.ui" line="84"/>
+        <location filename="TabForm.ui" line="163"/>
         <source>Clear</source>
         <translation>Очистить</translation>
     </message>
     <message>
-        <location filename="TabForm.ui" line="93"/>
+        <location filename="TabForm.ui" line="97"/>
         <source>Pause</source>
         <translation>Пауза</translation>
     </message>
     <message>
-        <location filename="TabForm.ui" line="140"/>
+        <location filename="TabForm.ui" line="148"/>
         <source>Send file</source>
         <translation>Отправить файл</translation>
     </message>
     <message>
-        <location filename="TabForm.ui" line="180"/>
+        <location filename="TabForm.ui" line="178"/>
+        <source>String to send</source>
+        <translation>Строка для отправки</translation>
+    </message>
+    <message>
+        <location filename="TabForm.ui" line="191"/>
         <source>Send</source>
         <translation>Отправить</translation>
     </message>

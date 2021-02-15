@@ -37,7 +37,7 @@ private:
     void initAsciiTable();
 
 private:
-    const QString version = "1.2.1";
+    const QString version = "1.2.3";
     Ui::ComTerm *ui;
     const int heighTab = 200;
     using BaudRatePair = QPair<QRadioButton*, QSerialPort::BaudRate>;
